@@ -17,8 +17,7 @@ from numpy import genfromtxt
 
 dist = genfromtxt('muscle_dist.csv', delimiter=',')
 dist = dist.tolist()
-print(dist)
-print(len(dist))
+
 
 Z = hac.linkage(dist,  method='ward')
 np.savetxt('muscle_ward_distance.csv', Z, delimiter = ',')

@@ -1,10 +1,10 @@
 for j in range(0,16):
-    f = open('wardClusters/cluster' + str(j) + '.txt', 'r') # read in indices of 37000 cells
+    f = open('muscle_clusters/cluster' + str(j) + '.txt', 'r') # read in indices of 37000 cells
     indexList = f.read().splitlines()
     indexList = [int(i) for i in indexList]
     f.close()
 
-    f = open('data/noUnexpressedGenes.txt', 'r') # read in indices of 37000 cells
+    f = open('data/geneAndTimeData/noUnexpressedGenes.txt', 'r') # read in indices of 37000 cells
     geneList = f.read().splitlines()
     f.close()
 
@@ -12,7 +12,7 @@ for j in range(0,16):
     print(clusterGenes)
     print(len(clusterGenes))
 
-    with open('wardClusters/cluster' + str(j) + '.txt', 'w') as f: # write out results to text file
+    with open('muscle_clusters/cluster' + str(j) + '.txt', 'w') as f: # write out results to text file
         for item in clusterGenes:
             f.write("%s\n" % item)
 

@@ -75,7 +75,6 @@ def findDistanceMatrix():
     dist = scipy.spatial.distance.pdist(df, metric=my_metric)
     np.savetxt('muscle_dist.csv', dist, delimiter=',')
     return
-
 findDistanceMatrix()
 
 def dendrogram(plot):

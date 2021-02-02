@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 from numpy import genfromtxt
 
-df = pd.read_csv('data/betterWardLinkage.csv', header = None, index_col = None)
+df = pd.read_csv('data/distance/muscle_ward_distance.csv', header = None, index_col = None)
 Z = df.to_numpy(dtype=None, copy=True)
 
 def dendrogram(plot):
@@ -47,7 +47,7 @@ def print_clusters(Z, k, plot=False):
         cluster_indices = s[s == c].index
         print(cluster_indices)
 
-        with open('wardClusters/cluster' + str(counter) + '.txt', 'w') as f: # write out results to text file
+        with open('muscle_clusters/cluster' + str(counter) + '.txt', 'w') as f: # write out results to text file
             for item in cluster_indices:
                 f.write("%s\n" % item)
 
