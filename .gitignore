@@ -1,33 +1,33 @@
-./muscle_dist.csv
-./data/geneAndTimeData/rawReads.csv
-./data/geneAndTimeData/rawReadsWithUnexpressedGenes.csv
-./data/geneAndTimeData/rawReadsWithCellNames.csv
-./data/geneAndTimeData/smallDistanceMatrix.csv
-./data/geneAndTimeData/smallMatGeneNames.csv
-./data/distance/betterCondensedDistance.csv
-./data/distance/IL1_squareform_distance.csv
-./data/distance/distanceMatrix.csv
-./data/distance/squareformDistance.csv
-./data/distance/IL1_squareform2.csv
-./data/distance/IL1_squareform.csv
-./data/distance/condensedCompleteDistMatrix.csv
-./data/magicOutput/magicWithoutNormalization1.csv
-./data/magicOutput/magicWithNormalization13.csv
-./data/magicOutput/magicWithNormalization9.csv
-./data/magicOutput/magicWithoutNormalization7.csv
-./data/magicOutput/magicWithoutNormalization3.csv
-./data/magicOutput/magicWithNormalization3.csv
-./data/magicOutput/magicWithNormalization19.csv
-./data/magicOutput/magicWithNormalization17.csv
-./data/magicOutput/magicWithoutNormalization5.csv
-./data/magicOutput/magicWithNormalization7.csv
-./data/magicOutput/magicWithoutNormalization11.csv
-./data/magicOutput/magicWithNormalization11.csv
-./data/magicOutput/magicWithNormalization15.csv
-./data/magicOutput/magicWithNormalization1.csv
-./data/magicOutput/magicWithNormalization5.csv
-./data/magicOutput/magicWithoutNormalization9.csv
-./data/magicOutput/magicWithoutNormalization13.csv
-./data/Normalized scRNA Data Output/magicWithNormalization.csv
-./data/Normalized scRNA Data Output/transposedEset.csv
-./data/Normalized scRNA Data Output/magicWithoutNormalization.csv
+muscle_dist.csv
+data/geneAndTimeData/rawReads.csv
+data/geneAndTimeData/rawReadsWithUnexpressedGenes.csv
+data/geneAndTimeData/rawReadsWithCellNames.csv
+data/geneAndTimeData/smallDistanceMatrix.csv
+data/geneAndTimeData/smallMatGeneNames.csv
+data/distance/betterCondensedDistance.csv
+data/distance/IL1_squareform_distance.csv
+data/distance/distanceMatrix.csv
+data/distance/squareformDistance.csv
+data/distance/IL1_squareform2.csv
+data/distance/IL1_squareform.csv
+data/distance/condensedCompleteDistMatrix.csv
+data/magicOutput/magicWithoutNormalization1.csv
+data/magicOutput/magicWithNormalization13.csv
+data/magicOutput/magicWithNormalization9.csv
+data/magicOutput/magicWithoutNormalization7.csv
+data/magicOutput/magicWithoutNormalization3.csv
+data/magicOutput/magicWithNormalization3.csv
+data/magicOutput/magicWithNormalization19.csv
+data/magicOutput/magicWithNormalization17.csv
+data/magicOutput/magicWithoutNormalization5.csv
+data/magicOutput/magicWithNormalization7.csv
+data/magicOutput/magicWithoutNormalization11.csv
+data/magicOutput/magicWithNormalization11.csv
+data/magicOutput/magicWithNormalization15.csv
+data/magicOutput/magicWithNormalization1.csv
+data/magicOutput/magicWithNormalization5.csv
+data/magicOutput/magicWithoutNormalization9.csv
+data/magicOutput/magicWithoutNormalization13.csv
+data/Normalized scRNA Data Output/magicWithNormalization.csv
+data/Normalized scRNA Data Output/transposedEset.csv
+data/Normalized scRNA Data Output/magicWithoutNormalization.csv
