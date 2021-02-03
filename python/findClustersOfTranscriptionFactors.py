@@ -7,7 +7,7 @@ f.close()
 
 listOfGeneLists = []
 for j in range(0,16):
-    f = open('muscle_clusters/cluster' + str(j) + '.txt', 'r')
+    f = open('wardClusters/cluster' + str(j) + '.txt', 'r')
     geneList = f.read().splitlines()
     f.close()
     listOfGeneLists.append(geneList)
@@ -24,13 +24,13 @@ for i in range(len(tf)):
     if not found:
         tfCluster[tf[i]] = -1
 
-with open('data/muscleTFStuff/muscleClusterList.txt', 'w') as f: # write out results to text file
-    for item in tfCluster:
-        f.write("%s\n" % item)
+# with open('data/muscleTFStuff/muscleClusterList.txt', 'w') as f: # write out results to text file
+#     for item in tfCluster:
+#         f.write("%s\n" % item)
 
-f.close()
+# f.close()
 
-# with open('data/muscleTFStuff/muscleClusterDict.txt', 'w') as outfile:
-#     json.dump(tfCluster, outfile)
+with open('data/muscleTFStuff/wardClusterDict.txt', 'w') as outfile:
+    json.dump(tfCluster, outfile)
 
-# outfile.close()
+outfile.close()
