@@ -1,6 +1,6 @@
 import pandas as pd
 
-f = open('data/muscleTFStuff/listOfTFsNotInClusters.txt', 'r')
+f = open('data/muscleTFStuff/transcriptionFactors.txt', 'r')
 tf = f.read().splitlines()
 f.close()
 
@@ -9,7 +9,8 @@ muscle_t6 = t6['BWM_anterior' : 'BWM_posterior']
 
 # fractions = []
 # for factor in tf:
-#     fractions.append((muscle_t6[factor] != 0).sum() / (t6[factor] != 0).sum())
+#     if (t6[factor] != 0).sum():
+#         fractions.append((muscle_t6[factor] != 0).sum() / (t6[factor] != 0).sum())
 
 # with open('data/fractionOfTFsAreMuscles.txt', 'w') as f: # write out results to text file
 #     for item in fractions:

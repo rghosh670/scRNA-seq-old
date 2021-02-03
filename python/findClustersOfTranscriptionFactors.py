@@ -1,31 +1,36 @@
 import pandas as pd
+import json
 
-f = open('data/transcriptionFactors.txt', 'r')
+f = open('data/muscleTFStuff/transcriptionFactors.txt', 'r')
 tf = f.read().split()
 f.close()
 
-
 listOfGeneLists = []
 for j in range(0,16):
-    f = open('wardClusters/cluster' + str(j) + '.txt', 'r')
+    f = open('muscle_clusters/cluster' + str(j) + '.txt', 'r')
     geneList = f.read().splitlines()
     f.close()
     listOfGeneLists.append(geneList)
 
-tfCluster = []
-for factor in tf:
+tfCluster = {}
+for i in range(len(tf)):
     found = False
     for geneListIndex, geneList in enumerate(listOfGeneLists):
-        if factor in geneList:
-            tfCluster.append(geneListIndex)
+        if tf[i] in geneList:
+            tfCluster[tf[i]] = geneListIndex
             found = True
             break
 
     if not found:
-        tfCluster.append(-1)
+        tfCluster[tf[i]] = -1
 
-with open('data/clusterOfTranscriptionFactors.txt', 'w') as f: # write out results to text file
+with open('data/muscleTFStuff/muscleClusterList.txt', 'w') as f: # write out results to text file
     for item in tfCluster:
         f.write("%s\n" % item)
 
 f.close()
+
+# with open('data/muscleTFStuff/muscleClusterDict.txt', 'w') as outfile:
+#     json.dump(tfCluster, outfile)
+
+# outfile.close()

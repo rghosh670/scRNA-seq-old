@@ -1,8 +1,8 @@
-import pandas as pd
+from scipy import stats
 
-f = open('data/muscleTFStuff/listOfTFsNotInClusters.txt', 'r')
-tf = f.read().splitlines()
-f.close()
+x = [30, 31, 32, 33, 34]
+y = [0, 1, 2 ,3 ,4]
 
-col = pd.read_csv('data/t6Stuff/mean_t6.csv', index_col=[0])['ets-8'].tolist()
-print(col)
+correlation, p_value = stats.pearsonr(x, y)
+
+print(correlation)
