@@ -15,7 +15,7 @@ t6_dict = {}
 for i in t6.index:
     t6_dict[i[:i.index(':')]] = t6_dict.setdefault(i[:i.index(':')], pd.DataFrame(columns=t6.columns)).append(t6.loc[i])
 
-cellScore = pd.read_csv('wardClusters/wardCellBinScore.csv', index_col=0)
+cellScore = pd.read_csv('muscle_clusters/muscleCellBinScore.csv', index_col=0)
 cellScore = cellScore['BWM_anterior:210_270':'BWM_posterior:gt_650']
 
 cellScore_dict = {}
@@ -38,4 +38,4 @@ for cell in t6_dict.keys():
             correlation, p_value = stats.pearsonr(t6_dict[cell].loc[:,gene], cellScore_dict[cell].loc[:,cluster])
             df.at[gene, cell] = df.at[gene, cell] + [correlation]
 
-df.to_csv('data/muscleTFStuff/muscle_correlationBetweenTFAndCluster.csv')
+df.to_csv('data/muscleTFStuff/muscle_cluster_muscle_correlationBetweenTFAndCluster.csv')
