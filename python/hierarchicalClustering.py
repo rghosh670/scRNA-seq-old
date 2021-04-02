@@ -1,9 +1,10 @@
+from numpy.core.einsumfunc import _parse_einsum_input
 import scipy
 from scipy.cluster.hierarchy import fcluster
 from scipy import stats
 import scipy.cluster.hierarchy as hac
 import statistics
-from statistics import mode
+from statistics import median
 from math import floor
 import random
 import numpy as np
@@ -44,25 +45,47 @@ f = open('data/geneAndTimeData/listOfGenes.txt', 'r')
 geneList = f.read().splitlines()
 f.close()
 
-eset = pd.read_csv('data/geneAndTimeData/rawReads.csv', index_col = None, skiprows = lambda x : x not in rowList, header = 0)
+eset = pd.read_csv('data/geneAndTimeData/rawReadsWithCellNames.csv', index_col = None, skiprows = lambda x : x not in rowList, header = 0)
+eset.drop(['cell'],axis=1,inplace=True)
 timeListWithoutDuplicates = list(dict.fromkeys(timeList))
 
+
 df = pd.DataFrame(index=geneList,
-                  columns=timeListWithoutDuplicates)
+                  columns=timeListWithoutDuplicates, dtype='object')
 df = df.fillna(1e-10)
+
+for i in df.columns:
+    df[i] = df[i].astype('object')
 
 for row, expressionSeries in eset.iterrows():
     for i in range(len(expressionSeries.index)):
-        if expressionSeries.values[i] != 0.0:
-            if df.at[expressionSeries.index[i], timeList[row]] == 1e-10:
-                try:
-                    df.at[expressionSeries.index[i], timeList[row]] = expressionSeries.values[i]
-                except:
-                    print(expressionSeries.index[i], timeList[row])
+        if df.at[expressionSeries.index[i], timeList[row]] == 1e-10:
+            try:
+                df.at[expressionSeries.index[i], timeList[row]] = expressionSeries.values[i]
+            except:
+                print(expressionSeries.index[i], timeList[row])
+        else:
+            temp_list = None
+            if type(df.at[expressionSeries.index[i], timeList[row]]) == list:
+                temp_list = df.at[expressionSeries.index[i], timeList[row]]
             else:
-                df.at[expressionSeries.index[i], timeList[row]] = (expressionSeries.values[i] + df.at[expressionSeries.index[i], timeList[row]])/2
+                temp_list = [df.at[expressionSeries.index[i], timeList[row]]]
+
+            temp_list.append(expressionSeries.values[i])
+            df.at[expressionSeries.index[i], timeList[row]] = temp_list
+
+print(df)
 
 df = df.reindex(sorted(df.columns), axis=1)
+
+for row, series in df.iterrows():
+    series = series.tolist()
+    temp_list = [median(x) if type(x) == list else x for x in series]
+    df.loc[row] = temp_list
+
+
+df.replace(to_replace=0.0, value=1e-10, inplace=True)
+df.to_csv('muscle_df.csv')
 
 df = df[(df.T != 1e-10).any()]
 
@@ -73,9 +96,10 @@ def my_metric(x, y):
 
 def findDistanceMatrix():
     dist = scipy.spatial.distance.pdist(df, metric=my_metric)
-    np.savetxt('muscle_dist.csv', dist, delimiter=',')
+    np.savetxt('muscle_dist2.csv', dist, delimiter=',')
     return
 findDistanceMatrix()
+exit()
 
 def dendrogram(plot):
     Z = hac.linkage(df,  method='single', metric=my_metric)

@@ -15,9 +15,8 @@ from cellNames import getCellName
 import datetime
 from numpy import genfromtxt
 
-dist = genfromtxt('muscle_dist.csv', delimiter=',')
+dist = genfromtxt('muscle_dist2.csv', delimiter=',')
 dist = dist.tolist()
-
 
 Z = hac.linkage(dist,  method='ward')
 np.savetxt('muscle_ward_distance.csv', Z, delimiter = ',')
