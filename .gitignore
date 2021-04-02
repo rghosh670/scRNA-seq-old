@@ -32,3 +32,8 @@ data/magicOutput/magicWithoutNormalization13.csv
 data/Normalized scRNA Data Output/magicWithNormalization.csv
 data/Normalized scRNA Data Output/transposedEset.csv
 data/Normalized scRNA Data Output/magicWithoutNormalization.csv
+./.git/objects/68/7fef37ac5eea9f611f65bef5aa47d7bb7218a6
+./.git/objects/pack/pack-24a50727339fe56b9d07ea935eff81ac05073a15.pack
+./data/geneAndTimeData/rawReadsWithCellNames.csv
+./muscle_dist.csv
+./muscle_dist2.csv
